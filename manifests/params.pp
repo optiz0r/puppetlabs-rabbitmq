@@ -42,7 +42,7 @@ class rabbitmq::params {
       $package_ensure   = 'installed'
       $package_name     = 'rabbitmq-server'
       $service_name     = 'rabbitmq-server'
-      $package_provider = 'rpm'
+      $package_provider = 'yum'
       $version          = '3.1.5-1'
       $base_version     = regsubst($version,'^(.*)-\d$','\1')
       # This must remain at the end as we need $base_version and $version defined first.
@@ -94,6 +94,8 @@ class rabbitmq::params {
   $config_cluster             = false
   $config_path                = '/etc/rabbitmq/rabbitmq.config'
   $config_stomp               = false
+  $config_shovel              = false
+  $config_shovel_statics      = {}
   $default_user               = 'guest'
   $default_pass               = 'guest'
   $delete_guest_user          = false
